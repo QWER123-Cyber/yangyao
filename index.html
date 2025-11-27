@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>记忆翻牌游戏 - 演讲展示</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 游戏容器 -->
+    <div class="game-container">
+        <!-- 游戏标题 -->
+        <h1>记忆翻牌游戏</h1>
+        
+        <!-- 游戏控制面板 -->
+        <div class="game-controls">
+            <div class="difficulty-selector">
+                <label for="difficulty-select">难度级别：</label>
+                <select id="difficulty-select">
+                    <option value="easy">简单 (4×3)</option>
+                    <option value="medium" selected>中等 (4×4)</option>
+                    <option value="hard">困难 (6×4)</option>
+                </select>
+            </div>
+            
+            <button id="start-button">开始游戏</button>
+            <button id="restart-button">重新开始</button>
+        </div>
+        
+        <!-- 游戏统计信息 -->
+        <div class="game-stats">
+            <div class="stat-item">
+                <span>翻牌次数：</span>
+                <span id="attempts">0</span>
+            </div>
+            <div class="stat-item">
+                <span>匹配对数：</span>
+                <span id="matches">0</span>
+            </div>
+            <div class="stat-item">
+                <span>游戏时间：</span>
+                <span id="timer">0:00</span>
+            </div>
+        </div>
+        
+        <!-- 游戏牌面区域 -->
+        <div class="game-board" id="game-board">
+            <!-- 卡片将通过JavaScript动态生成 -->
+        </div>
+        
+        <!-- 游戏结果弹窗 -->
+        <div class="game-over-modal" id="game-over-modal">
+            <div class="modal-content">
+                <h2>恭喜你完成游戏！</h2>
+                <div class="final-stats">
+                    <p>总翻牌次数：<span id="final-attempts">0</span></p>
+                    <p>总用时：<span id="final-time">0:00</span></p>
+                </div>
+                <button id="play-again-button">再玩一次</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 项目说明部分 -->
+    <div class="project-info">
+        <h2>记忆翻牌游戏 - 项目说明</h2>
+        
+        <div class="info-section">
+            <h3>🎮 游戏规则</h3>
+            <p>记忆翻牌游戏是一款经典的考验记忆力和专注力的小游戏：</p>
+            <ul>
+                <li>游戏开始时，所有卡片背面朝上</li>
+                <li>点击任意卡片翻牌，每次最多翻开两张</li>
+                <li>如果两张卡片图案相同，则匹配成功并保持翻开状态</li>
+                <li>如果两张卡片图案不同，则自动翻回背面</li>
+                <li>玩家需要在最短时间内匹配所有卡片对</li>
+                <li>游戏结束时会显示完成时间和尝试次数</li>
+            </ul>
+        </div>
+        
+        <div class="info-section">
+            <h3>✨ 技术亮点</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h4>响应式设计</h4>
+                    <p>使用CSS Grid和媒体查询，确保游戏在手机、平板和电脑上都有良好的显示效果和操作体验</p>
+                </div>
+                <div class="feature-item">
+                    <h4>流畅的翻转动画</h4>
+                    <p>采用CSS 3D变换实现卡片翻转动画，结合过渡效果，提供沉浸式的游戏体验</p>
+                </div>
+                <div class="feature-item">
+                    <h4>智能难度系统</h4>
+                    <p>支持简单（12张卡片）、中等（16张卡片）、困难（24张卡片）三种难度模式，满足不同玩家的需求</p>
+                </div>
+                <div class="feature-item">
+                    <h4>实时统计跟踪</h4>
+                    <p>游戏过程中实时显示尝试次数、匹配对数和用时，帮助玩家了解自己的游戏进度和表现</p>
+                </div>
+                <div class="feature-item">
+                    <h4>清晰的游戏流程</h4>
+                    <p>从开始游戏到结束，提供明确的视觉反馈和操作引导，确保玩家能够轻松上手</p>
+                </div>
+                <div class="feature-item">
+                    <h4>优雅的UI设计</h4>
+                    <p>采用渐变色背景、卡片阴影和悬浮效果，营造出现代感和层次感，提升整体视觉体验</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <h3>🛠️ 开发技术栈</h3>
+            <p>本项目使用了以下前端技术：</p>
+            <div class="tech-stack">
+                <span class="tech-item">HTML5</span>
+                <span class="tech-item">CSS3</span>
+                <span class="tech-item">JavaScript</span>
+                <span class="tech-item">CSS Grid</span>
+                <span class="tech-item">CSS Transitions</span>
+                <span class="tech-item">DOM API</span>
+            </div>
+            <p>整个项目采用了模块化的设计思想，代码结构清晰，易于维护和扩展。</p>
+        </div>
+        
+        <div class="info-section">
+            <h3>🚀 扩展功能建议</h3>
+            <p>如果要进一步完善这个项目，可以考虑添加以下功能：</p>
+            <ul>
+                <li>添加音效和背景音乐，增强游戏的沉浸感</li>
+                <li>实现本地存储功能，保存玩家的最佳成绩记录</li>
+                <li>支持多人对战模式，增加游戏的社交性</li>
+                <li>提供更多主题和卡片样式，增加游戏的多样性</li>
+                <li>实现提示功能，帮助新手玩家快速上手</li>
+                <li>添加成就系统，增加游戏的可玩性和挑战性</li>
+            </ul>
+        </div>
+        
+        <div class="info-section">
+            <h3>📊 项目总结</h3>
+            <p>这个记忆翻牌游戏不仅是一个有趣的娱乐工具，也是前端技术应用的一个很好的示例。通过HTML搭建结构、CSS实现样式和动画、JavaScript处理逻辑，我们创建了一个功能完整、体验流畅的网页游戏。</p>
+            <p>游戏的核心是记忆和匹配的逻辑，通过精心设计的界面和交互，为用户提供了一个愉悦的游戏体验。这个项目展示了如何将前端技术应用于实际场景，以及如何通过优化设计和交互来提升用户体验。</p>
+        </div>
+    </div>
+    
+    <!-- JavaScript文件 -->
+    <script src="script.js"></script>
+</body>
+</html>
